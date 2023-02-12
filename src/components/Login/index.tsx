@@ -1,21 +1,28 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
+import { fetchUser } from "../../utils/api";
+import { useEffect } from "react";
+import { User } from "../../utils/types";
 
 export const Login = () => {
-  const query = useQuery();
-  let code = query.get("code") ?? null;
+  const history = useNavigate();
+  const location = useLocation();
+  const query = new URLSearchParams(location.search);
+  const code = query.get("code");
 
-  if (!code) {
-    window.location.href = "http://localhost:3000/";
-  }
+  useEffect(() => {
+    if (!code) {
+      history("/");
+      return;
+    }
 
-  return (
-    <>
-      {code ? <h1>Logged in!</h1> : <h1>Not logged in!</h1>}
-      {/* <h1>{code}</h1> */}
-    </>
-  ); 
-};
+    const fetchDataAndUpdateState = async () => {
+      const fetchedUser: User = await fetchUser(code);
+      // setUser(fetchedData);
+      console.log(fetchedUser);
+    };
 
-const useQuery = () => {
-  return new URLSearchParams(useLocation().search);
+    fetchDataAndUpdateState();
+  }, [code, history]);
+
+  return <div>Loading...</div>;
 };
