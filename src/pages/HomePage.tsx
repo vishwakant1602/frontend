@@ -1,10 +1,19 @@
 import { FaDiscord, FaQuestionCircle } from "react-icons/fa";
 import { MainButton, HomePageStyle } from "../utils/styles";
+import UserContext from "../utils/contexts/userContext";
+import React, { useContext, useEffect } from "react";
 
 export const HomePage = () => {
   const redirect = () => {
     window.location.href = "http://localhost:3001/auth/login";
   };
+
+  const { user } = useContext(UserContext);
+
+  useEffect(() => {
+    console.log("printing user in home page");
+    console.log(user);
+  }, [user]);
 
   return (
     <HomePageStyle>
