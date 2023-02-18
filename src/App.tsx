@@ -13,6 +13,7 @@ function App() {
 
   return (
     <UserProvider>
+    
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/menu" element={<MenuPage />} />
