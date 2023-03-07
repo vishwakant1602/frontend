@@ -16,8 +16,12 @@ export const Login = () => {
   const fetchDataAndUpdateState = useCallback(async () => {
     if (code && addUser) {
       const fetchedUser: User = await fetchUser(code);
-      addUser(fetchedUser);
-      history("/");
+
+      if (fetchedUser.id) {
+        addUser(fetchedUser);
+        console.log(fetchedUser);
+        history("/");
+      }
     }
   }, [code, addUser, history]);
 

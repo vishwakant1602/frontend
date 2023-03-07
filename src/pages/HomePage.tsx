@@ -1,28 +1,39 @@
 import { FaDiscord, FaQuestionCircle } from "react-icons/fa";
 import { MainButton, HomePageStyle } from "../utils/styles";
 import UserContext from "../utils/contexts/userContext";
-import React, { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 export const HomePage = () => {
-  const redirect = () => {
-    window.location.href = "http://localhost:3001/auth/login";
-  };
-
   const { user } = useContext(UserContext);
 
-  useEffect(() => {
-    console.log("printing user in home page");
-    console.log(user);
-  }, [user]);
+  const history = useNavigate();
+  useEffect(() => {}, [user]);
+
+  const handleRedirect = () => {
+    if (user) {
+      history("/menu");
+    } else {
+      window.location.href = "http://localhost:3001/auth/login";
+    }
+  };
 
   return (
     <HomePageStyle>
       <div></div>
       <div>
-        <MainButton onClick={redirect}>
-          <FaDiscord size={45} color="5865F2" />
-          <p style={{ fontSize: "20px" }}>Login With Discord</p>
-        </MainButton>
+        {!user ? (
+          <MainButton onClick={handleRedirect}>
+            <FaDiscord size={45} color="5865F2" />
+            <p style={{ fontSize: "20px" }}>Login With Discord</p>
+          </MainButton>
+        ) : (
+          <MainButton onClick={handleRedirect}>
+            <FaDiscord size={45} color="5865F2" />
+            <p style={{ fontSize: "20px" }}>Open Dashboard</p>
+          </MainButton>
+        )}
+
         <MainButton>
           <FaQuestionCircle size={45} />
           <p style={{ fontSize: "20px" }}>Support Server</p>
