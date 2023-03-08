@@ -12,7 +12,7 @@ export const HomePage = () => {
 
   const handleRedirect = () => {
     if (user) {
-      history("/menu");
+      history("/dashboard");
     } else {
       window.location.href = "http://localhost:3001/auth/login";
     }
