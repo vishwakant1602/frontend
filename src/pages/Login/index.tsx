@@ -4,7 +4,7 @@ import { useEffect, useState, useCallback, useContext } from "react";
 import { User } from "../../utils/types";
 import UserContext from "../../utils/contexts/userContext";
 
-export const Login = () => {
+export const LoginPage = () => {
   const location = useLocation();
   const history = useNavigate();
 

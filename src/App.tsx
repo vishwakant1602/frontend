@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import { Login } from "./components/Login";
+import { LoginPage } from "./pages/Login";
 import { HomePage } from "./pages/HomePage";
 import { MenuPage } from "./pages/dashboard";
 import { UserProvider } from "./utils/contexts/userContext";
@@ -25,7 +25,7 @@ function App() {
         </Route>
 
         {/* Others */}
-        <Route path="/auth/callback/" element={<Login />} />
+        <Route path="/auth/callback/" element={<LoginPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </UserProvider>
