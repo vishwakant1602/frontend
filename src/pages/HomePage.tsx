@@ -14,7 +14,7 @@ export const HomePage = () => {
     if (user) {
       history("/dashboard");
     } else {
-      window.location.href = "http://localhost:3001/auth/login";
+      window.location.href = `${process.env.REACT_APP_API_URL}/auth/login`;
     }
   };
 
