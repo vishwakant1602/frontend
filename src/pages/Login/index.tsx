@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { fetchUser } from "../../utils/api";
+import { fetchUserFromAPI } from "../../utils/api";
 import { useEffect, useState, useCallback, useContext } from "react";
 import { User } from "../../utils/types";
 import UserContext from "../../utils/contexts/userContext";
@@ -15,7 +15,7 @@ export const LoginPage = () => {
 
   const fetchDataAndUpdateState = useCallback(async () => {
     if (code && addUser) {
-      const fetchedUser: User = await fetchUser(code);
+      const fetchedUser: User = await fetchUserFromAPI(code);
 
       if (fetchedUser.id) {
         addUser(fetchedUser);
