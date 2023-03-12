@@ -7,6 +7,10 @@ import UserContext from "./utils/contexts/userContext";
 import { useContext } from "react";
 import { GuildDashboardPage } from "./pages/dashboard/guild";
 import { NotFoundPage } from "./pages/404";
+import { TermsPage } from "./pages/others/terms";
+import { RefundPage } from "./pages/others/refund";
+import { PrivacyPage } from "./pages/others/privacy";
+import { AboutPage } from "./pages/others/about";
 
 function App() {
   const { user } = useContext(UserContext);
@@ -25,7 +29,12 @@ function App() {
         </Route>
 
         {/* Others */}
-        <Route path="/auth/callback/" element={<LoginPage />} />
+        <Route path="/auth/callback" element={<LoginPage />} />
+        <Route path="/terms-of-use" element={<TermsPage />} />
+        <Route path="/refund-policy" element={<RefundPage />} />
+        <Route path="/privacy-policy" element={<PrivacyPage />} />
+        <Route path="/about" element={<AboutPage />} />
+
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </UserProvider>
