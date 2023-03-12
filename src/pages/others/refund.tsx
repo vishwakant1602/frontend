@@ -1,12 +1,12 @@
-import { RefundContainer } from "./styles";
+import { Container } from "./styles";
 export function RefundPage() {
   return (
     <center>
-      <RefundContainer>
+      <Container>
         <h1>We Have a Strict No Refunds Policy!</h1>
         <p>
-          We do not provide refunds for services purchased on our web dashboard or through our Discord Bot. By making a purchase, you acknowledge and
-          agree to this policy.
+          We do not provide refunds for services purchased on our web dashboard or through our Discord Bot. By making a
+          purchase, you acknowledge and agree to this policy.
         </p>
 
         <p>
@@ -26,7 +26,7 @@ export function RefundPage() {
           use our web dashboard after any modifications or updates to this policy, you agree to be bound by the updated
           refund policy.
         </p>
-      </RefundContainer>
+      </Container>
     </center>
   );
 }

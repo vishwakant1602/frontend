@@ -1,8 +1,8 @@
-import { TermsContainer } from "./styles";
+import { Container } from "./styles";
 export function TermsPage() {
   return (
-    <TermsContainer>
+    <Container>
       <h1>Terms</h1>
-    </TermsContainer>
+    </Container>
   );
 }

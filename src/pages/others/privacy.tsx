@@ -1,8 +1,8 @@
-import { PrivacyContainer } from "./styles";
+import { Container } from "./styles";
 export function PrivacyPage() {
   return (
-    <PrivacyContainer>
+    <Container>
       <h1>Privacy</h1>
-    </PrivacyContainer>
+    </Container>
   );
 }
