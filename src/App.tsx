@@ -11,32 +11,36 @@ import { TermsPage } from "./pages/others/terms";
 import { RefundPage } from "./pages/others/refund";
 import { PrivacyPage } from "./pages/others/privacy";
 import { AboutPage } from "./pages/others/about";
+import Footer from "./components/Footer"; // Ensure this is a default import
 
 function App() {
   const { user } = useContext(UserContext);
   console.log(user);
   return (
     <UserProvider>
-      <Routes>
-        {/* Static */}
-        <Route path="/" element={<HomePage />} />
+      <div>
+        <Routes>
+          {/* Static */}
+          <Route path="/" element={<HomePage />} />
 
-        {/* Dashboard */}
-        <Route path="/dashboard">
-          <Route index element={<MenuPage />} />
-          <Route path="@me" element={<MenuPage />} />
-          <Route path=":guildId" element={<GuildDashboardPage />} />
-        </Route>
+          {/* Dashboard */}
+          <Route path="/dashboard">
+            <Route index element={<MenuPage />} />
+            <Route path="@me" element={<MenuPage />} />
+            <Route path=":guildId" element={<GuildDashboardPage />} />
+          </Route>
 
-        {/* Others */}
-        <Route path="/auth/callback" element={<LoginPage />} />
-        <Route path="/terms-of-use" element={<TermsPage />} />
-        <Route path="/refund-policy" element={<RefundPage />} />
-        <Route path="/privacy-policy" element={<PrivacyPage />} />
-        <Route path="/about" element={<AboutPage />} />
+          {/* Others */}
+          <Route path="/auth/callback" element={<LoginPage />} />
+          <Route path="/terms-of-use" element={<TermsPage />} />
+          <Route path="/refund-policy" element={<RefundPage />} />
+          <Route path="/privacy-policy" element={<PrivacyPage />} />
+          <Route path="/about" element={<AboutPage />} />
 
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+        <Footer /> {/* Footer added here */}
+      </div>
     </UserProvider>
   );
 }
